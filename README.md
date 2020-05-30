@@ -1,37 +1,57 @@
-## Welcome to GitHub Pages
+### Build a Scalable In-App Notification System
 
-You can use the [editor on GitHub](https://github.com/aravinthvr/examly/edit/gh-pages/README.md) to maintain and preview the content for your website in Markdown files.
+  Here, the simple login page is created along with the In-App Notification System. There is bell like icon on the top-right corner of the screen with the count of notifications. 
+  The notification includes, course starting, course finished by either of the batchmates and Alert Trigger by staffs.
+    Here, it is divided into several subcategories.
+    
+### Category 1: Login & Signin:
+  => While signing in, the data of the user is get and according the space in the database is created.
+  => In this, classification is, staff or student.
+  => Because, Staff have the access to trigger alert and start new course.
+  => All other notification is to the Students.
+  
+### Category 2: Home or Profile:
+  => Here, the user's detail fetched during the signup is displayed.
+  => Along with that, there will be a header for notification Section.
+  => Both, student and staff will have a same action for this page.
+  
+### Category 3: Courses or Form Action:
+  => Here, there will be jQuery to select the content to be displayed on the screen.
+  => Because, for Student there will be course tile and for staff there will be actions like create course, delete course, trigger alert etc.,
+  => Here, there will be a finish button to finish all the courses.
+  
+### Category 4: Notification Bell:
+  => This is the Bell icon on the top-right corner of the screen. It will display the count of the notification.
+  => While clicking, there will be dropdown box showing the notification.
+  => Here, the API and the Algorithms or Methods used are listed below.
+  
+#### Methods
+## Read Tracker:
+  => Here, AXAX and JQUERY is used to prevent the page from loading for a small bit of data.
+  => Here, Count and Notification Toggle are created with certain IDs to refer.
+  => Whenever, the user click the bell button, jQuery will trigger and all the notifications will be marked as read in the database.
+  
+## Click Tracker:
+  => Here, the click tracker is used to find whether the user reads full notification or just viewed its outer.
+  => In this, we make the message as read when the user click on the notification.
+  => In addition, it will go to the course tile in course page when he clicks. For more information, he can click the tile for redirecting the page with information.
+  => Same like Read Tracker, here also AJAX along jQuery is triggered (pointing to php file) and make that notification to be marked as read in the database.
+  
+## Time Trigger:
+  => Here, the custom time is given as starting time. Here, we used as 10 minutes from the time of creation.
+  => The alert will be generated, when it is 2:30 minutes before the time of start and it will be the setpoint.
+  +> It is based on the algorithm that, the starting date and the current date is get subtracted. For this, the time and date is converted into UNIX (i.e. Number of Seconds) and when it is 150(i.e. 2:30 minutes in Seconds) or below, it will mark as mark as alert in the database.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/aravinthvr/examly/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+              ##########################################################################################################
+#### Main Algorithms:
+##Summary:
+  => Mark Read when user clicks Bell Buttton.
+  => Mark Click when user clicks Notification.
+  => Mark Trigger when subtracted value between Start and Current meets the Setpoint.
+  => Trigger Signal from Staff when Trigger Button actuates.
+  
+   All the above are done with the help of AJAX and jQuery along with php language. Here, the used the AJAX method is Google AJAX. All are tested in Local Servers (like Xampp Servers) and also in Online servers like azure. 
+   
+   Please Wait for Some times, if nothing is viewed in the webpage. Because all are AJAX which is Asynchronous Queries.
+   
+   The codes and the Database Export file also includes and check for your concern.
