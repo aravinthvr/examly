@@ -42,7 +42,7 @@
   => The alert will be generated, when it is 2:30 minutes before the time of start and it will be the setpoint.
   +> It is based on the algorithm that, the starting date and the current date is get subtracted. For this, the time and date is converted into UNIX (i.e. Number of Seconds) and when it is 150(i.e. 2:30 minutes in Seconds) or below, it will mark as mark as alert in the database.
 
-              ##########################################################################################################
+              ###################################################################################
 #### Main Algorithms:
 ##Summary:
   => Mark Read when user clicks Bell Buttton.
