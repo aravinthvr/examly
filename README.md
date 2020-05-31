@@ -10,6 +10,9 @@
   => Because, Staff have the access to trigger alert and start new course.
   => All other notification is to the Students.
   
+  Default Accounts: 
+  For Student: username => aravinthr    &     password: root
+  For Teacher: username => root    &     password: root
   
 ### Category 2: Home or Profile:
   => Here, the user's detail fetched during the signup is displayed.
