@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/cdfac6c7af.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <title>Examly Home Page</title>
+  </head>
+  <body>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-expand-sm navbar-expand-md navbar-light bg-primary">
+      <div class="container">
+        <a class="navbar-brand" href="#">EXAMLY HOME PAGE</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-bell"></i> <span class="badge badge-danger count" id="count"></span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div id="dropmenu"></div>
+                <a class="dropdown-item text-danger font-weight-bold" target="blank" href="api/showall.php"><i class="fas fa-envelope-open icon"></i>All Notification</a>
+              </div>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="logout.php"><i class="fas fa-sign-out-alt"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="wrapper">
+      <div class="sidebar">
+        <h3>Menu</h3>
+        <ul>
+          <li class="active"><a href="#"><i class="fas fa-user-graduate"></i>PROFILE</a></li>
+          <li><a href="courses.html"><i class="fa fa-book"></i>COURSES</a></li>
+          <li id="trackers"></li>
+        </ul>
+      </div>
+      <div class="main_content">
+        <div class="header"><i class="fas fa-home"></i>/ Profile</div>
+        <div id="show_staff">Loading ...</div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  </body>
+</html>
+<script type="text/javascript">
+  $(document).ready(function(){
+      function counter()
+      {
+        $.ajax({
+          url: "api/count.php",
+          method: "POST",
+          datatype:"json",
+          success:function(data)
+          {
+            $('#count').text(data);
+          }
+        })
+      }
+      counter();
+      function shower()
+      {
+        $.ajax({
+          url: "api/details.php",
+          method: "POST",
+          datatype:"json",
+          success:function(data)
+          {
+            $('#show_staff').html(data);
+          }
+        })
+      }
+      shower();
+
+      function droper()
+      {
+        $.ajax({
+          url: "dropper.php",
+          // url: "api/readall.php";
+          method: "POST",
+          datatype:"json",
+          success:function(data)
+          {
+            $('#dropmenu').html(data);
+          }
+        })
+      }
+      droper();
+
+      $("#navbarDropdown").on('click', function(){
+          $('#count').html('');
+          
+          $.ajax({
+            url:'api/readall.php',
+            method:'POST',
+            
+            success:function(data)
+            {
+              $('#count').text('success');
+              // counter();
+            }
+          });
+
+      });
+      
+      function remainder()
+      {
+        $.ajax({
+          url: "api/remainder.php",
+          method: "POST",
+          datatype:"json",
+          success:function(data)
+          {
+            if(data==1)
+              counter();
+          }
+        })
+      }
+      remainder();
+
+       function trackers()
+      {
+        $.ajax({
+          url: "api/trackers.php",
+          method: "POST",
+          datatype:"json",
+          success:function(data)
+          {
+            $('#trackers').text(data);
+          }
+        })
+      }
+      trackers();
+      
+      setInterval(function(){ 
+      counter();
+      droper();   
+      remainder();
+      trackers();
+     }, 10000);
+
+  });
+</script>
