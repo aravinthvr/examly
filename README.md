@@ -11,7 +11,7 @@
   => All other notification is to the Students.
   
   Default Accounts: 
-  For Student: username => aravinthr    &     password: root
+  For Student: username => aravinthr    &     password: root       ###########
   For Teacher: username => root    &     password: root
   
 ### Category 2: Home or Profile:
