@@ -10,6 +10,7 @@
   => Because, Staff have the access to trigger alert and start new course.
   => All other notification is to the Students.
   
+  
 ### Category 2: Home or Profile:
   => Here, the user's detail fetched during the signup is displayed.
   => Along with that, there will be a header for notification Section.
