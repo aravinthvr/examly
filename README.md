@@ -52,6 +52,6 @@
   
    All the above are done with the help of AJAX and jQuery along with php language. Here, the used the AJAX method is Google AJAX. All are tested in Local Servers (like Xampp Servers) and also in Online servers like azure. 
    
-   Please Wait for Some times, if nothing is viewed in the webpage. Because all are AJAX which is Asynchronous Queries.
+   Here, we are using Azure Databases and Azure Servers. The server is a Fre-Tier one. So, please Wait for Some times, if containers of page is loadin in the webpage. Sorry for this inconvenience and may work fast is the server is Good Maintained One.
    
    The codes and the Database Export file also includes and check for your concern.
