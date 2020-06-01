@@ -20,7 +20,9 @@
       mysqli_query($db,$reg2);
       $reg3="ALTER TABLE `alert` ADD `$uname` INT NOT NULL";
       mysqli_query($db,$reg3);
-      $reg4="ALTER TABLE `coursealert` ADD `$uname` INT NOT NULL";
+      $reg4="ALTER TABLE `coursealert` ADD `$userclick` INT NOT NULL";
+      mysqli_query($db,$reg4);
+	  $reg4="ALTER TABLE `coursealert` ADD `$userread` INT NOT NULL";
       mysqli_query($db,$reg4);
     }
 
